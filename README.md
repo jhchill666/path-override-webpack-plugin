@@ -29,3 +29,11 @@ const webpackConfig = {
 }
 
 ```
+
+## Installation
+
+Install via [npm](https://www.npmjs.com/package/path-override-webpack-plugin):
+
+```
+npm install --save-dev path-override-webpack-plugin
+```
