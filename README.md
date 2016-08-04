@@ -52,7 +52,7 @@ new PathOverridePlugin(pathRegExp, pathReplacement, extensions)
 
 ## Roadmap
 
-*
+* Add test suite
 
 --
 
