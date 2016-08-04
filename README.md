@@ -10,8 +10,22 @@ Although Webpack has a comprehensive `aliasing` configuration, where by swapping
 
 ``` js
 // SomeView.js  
-import './SomeView.scss'
+import 'app/view/SomeView.scss'
 
 // SomeParent.js  
 import SomeView from 'app/view/SomeView'
+```
+
+Say we want to override the styles and the view with different files (think skinning), we can like this:
+
+``` js
+// webpack.config.js
+import PathOverridePlugin from 'path-override-webpack-plugin'
+
+const webpackConfig = {
+    plugins: [
+        new PathOverridePlugin(/^app\/view/, './node_modules/SomeExternalSkin/src')
+    ]
+}
+
 ```
