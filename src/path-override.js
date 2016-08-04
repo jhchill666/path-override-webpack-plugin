@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+var fs = require('fs')
+var path = require('path')
 
 // Check if this is a windows runtime or not
 var WIN = /^win/.test(process.platform);
