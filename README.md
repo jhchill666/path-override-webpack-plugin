@@ -8,7 +8,7 @@
 
 Although Webpack has a comprehensive `aliasing` configuration, where by swapping out the resolved location of files is easy.  But making this more granular - targeting individual files, or nested subdirectories - can be tiresome to configure in your `webpack.config`
 
-```
+``` js
 // SomeView.js  
 import './SomeView.scss'
 
