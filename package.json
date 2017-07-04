@@ -1,6 +1,6 @@
 {
   "name": "path-override-webpack-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Webpack plugin that enables overriding module import paths ",
   "main": "src/path-override.js",
   "scripts": {},
