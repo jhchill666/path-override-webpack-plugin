@@ -63,6 +63,7 @@ AliasOverridePlugin.prototype.apply = function (resolver) {
     var pathRegExp = this.pathRegExp;
     var pathReplacement = this.pathReplacement;
     var exts = this.exts;
+    var info = [];
 
     resolver.plugin("normal-module-factory", function(nmf) {
         nmf.plugin("before-resolve", function(result, callback) {
@@ -70,10 +71,10 @@ AliasOverridePlugin.prototype.apply = function (resolver) {
 
             // test the request for a path match
             if(pathRegExp.test(result.request)) {
-                var filePath = result.request.replace(pathRegExp, pathReplacement)
+                var filePath = result.request.replace(pathRegExp, pathReplacement);
                 getResolvedFile(filePath, exts, function(file) {
                     if (typeof file === 'string') {
-                        console.log('[path-override] '+result.request+' => '+file)
+                        info.push('[path-override] '+result.request+' => '+file);
                         result.request = file;
                     }
                     return callback(null, result);
@@ -82,6 +83,12 @@ AliasOverridePlugin.prototype.apply = function (resolver) {
                 return callback(null, result);
             }
         });
+    });
+
+    resolver.plugin("done", function(thing) {
+        if (info.length > 0) {
+            console.log(info.join("\n"));
+        }
     });
 };
 
