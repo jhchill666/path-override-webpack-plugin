@@ -30,8 +30,11 @@ var getResolvedFile = function (filePath, exts, callback) {
             var componentFileName, componentFilePath;
             // Try to load regular file
             if (extObj.file) {
-                componentFileName = componentId + '.' + extObj.ext;
-                componentFilePath = enclosingDirPath + '.' + extObj.ext;
+                componentFilePath = enclosingDirPath;
+                extension = '.' + extObj.ext;
+                if (componentFilePath.slice(extension.length * -1) !== extension) {
+                    componentFilePath += extension;
+                }
             } else {
                 componentFileName = componentId + '.' + extObj.ext;
                 componentFilePath = path.join(enclosingDirPath, componentFileName);
